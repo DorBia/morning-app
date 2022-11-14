@@ -1,48 +1,45 @@
-import { useState, useEffect } from 'react'
-import { useAuthContext } from './useAuthContext'
+import { useState } from "react";
+import { useAuthContext } from "./useAuthContext";
 
 // firebase imports
-import { db, auth } from "../firebase/config"
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { doc, updateDoc } from 'firebase/firestore'
+import { db, auth } from "../firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
 
 export const useLogin = () => {
-  const [isCancelled, setIsCancelled] = useState(false)
-  const [error, setError] = useState(null)
-  const [isPending, setIsPending] = useState(false)
-  const { dispatch } = useAuthContext()
+  const { dispatch } = useAuthContext();
+
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
 
   const login = async (email, password) => {
-    setError(null)
-    setIsPending(true)
-  
+    setError(null);
+    setIsPending(true);
+
     try {
       // login
-      const res = await signInWithEmailAndPassword(auth, email, password)
+      const res = await signInWithEmailAndPassword(auth, email, password);
 
       // dispatch login action
-      dispatch({ type: 'LOGIN', payload: res.user })
+      dispatch({ type: "LOGIN", payload: res.user });
 
-      // update online status 
-      await updateDoc(doc(db, "users", res.user.uid), { online: true })
+      // update online status
+      await updateDoc(doc(db, "users", res.user.uid), { online: true });
 
-
-      if (!isCancelled) {
-        setIsPending(false)
-        setError(null)
+      setIsPending(false);
+      setError(null);
+    } catch (err) {
+      // set custom error messages
+      if (err.message.includes("not-found")) {
+        setError("User with this email doesn't exist");
+      } else if (err.message.includes("wrong-password")) {
+        setError("Wrong password");
+      } else {
+        setError(err.message);
       }
-    } 
-    catch(err) {
-      if (!isCancelled) {
-        setError(err.message)
-        setIsPending(false)
-      }
+      setIsPending(false);
     }
-  }
+  };
 
-  useEffect(() => {
-    return () => setIsCancelled(true)
-  }, [])
-
-  return { login, isPending, error }
-}
+  return { login, isPending, error };
+};

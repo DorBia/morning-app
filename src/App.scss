@@ -1,3 +1,57 @@
-.App {
-  display: flex;
+@use "./styles/variables" as *;
+
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  color: $color-button;
+  background: $color-white;
+  border: 1px solid $color-button;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-button;
+  }
+}
+
+/* forms */
+label {
+  display: block;
+  margin: 1.5rem auto;
+
+  & span {
+    color: $color-dark-grey;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  & input, & textarea {
+    font-size: 1em;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: $color-dark-grey;
+    border: 1px solid $color-light-grey;
+    border-radius: 4px;
+  
+    &:focus {
+      outline: none;
+      border: 2px solid $color-button;
+    }
+  }
+  
+  & textarea {
+    min-height: 10rem;
+  }
+}
+
+.error {
+  text-align: center;
+  padding: 0.7rem;
+  margin-top: 1rem;
+  color: $color-red;
+  background: $color-pink;
+  border: 1px solid $color-red;
+  border-radius: 6px;
 }

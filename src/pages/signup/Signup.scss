@@ -1,0 +1,49 @@
+@use "../../styles/variables" as *;
+
+.form {
+    padding: 2.5rem;
+    max-width: 22.5rem;
+    margin: 4rem auto;
+    background: $color-white;
+    border: 1px solid $color-light-grey;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px $color-light-grey;
+
+    & h2 {
+        text-align: center;
+        color: #484848;
+    }
+
+    &__file input {
+        display: none;
+    }
+
+    &__add {
+        display: flex;
+        gap: 0.5em;
+        color: $color-dark-grey;
+        background: $color-white;
+        border: 1px solid $color-dark-grey;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 95%;
+        cursor: pointer;
+
+        & img {
+            filter: invert(40%);
+        }
+    }
+
+    &__password {
+        position: relative;
+     
+        & img {
+            width: 1.7rem;
+            filter: invert(70%);
+            position: absolute;
+            right: 1rem;
+            top: 2.2rem;
+            cursor: pointer;
+        }
+    }
+}
