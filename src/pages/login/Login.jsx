@@ -6,7 +6,7 @@ import CrossedEye from "../../assets/visibility-off.svg"
 
 export default function Login() {
   const { error, login, isPending } = useLogin();
-
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +19,7 @@ export default function Login() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
-        <h2>Log in</h2>
+        <h2>Sign in</h2>
 
         <label>
           <span>Email:</span>
@@ -44,8 +44,8 @@ export default function Login() {
           <img src={showPassword ? CrossedEye : EyeIcon} alt="show/hide password" onClick={() => setShowPassword(!showPassword)} />
         </label>
 
-        {!isPending && <button className="btn">Log in</button>}
-        {isPending && <button className="btn">loading</button>}
+        {!isPending && <button className="btn">Sign in</button>}
+        {isPending && <button className="btn">Loading...</button>}
         {error && <p className="error">{error}</p>}
       </form>
     </div>
