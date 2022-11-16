@@ -1,0 +1,87 @@
+@use "../../styles/variables" as *;
+
+.home {
+    text-align: center;
+    margin: 5vh auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 75vh;
+    background: #f4f4f4;
+
+    &--active {
+        height: 100vh;
+    }
+
+    &__date {
+        font-size: 1.3rem;
+    }
+
+    & h1 {
+        font-size: 2.3rem;
+    }
+
+    &__weather {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 30%;
+        justify-content: space-between;
+        font-size: 1.2rem;
+    }
+
+    &__forecast {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 30px;
+        border: 1px solid $color-light-grey;
+        box-shadow: 5px 5px 10px $color-light-grey;
+        border-radius: 8px;
+    }
+
+    &__day {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 70vw;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &__base {
+        display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-top: 15vh;
+        height: 50vh;
+
+        &--active{
+            margin-top: 5vh;
+            height: 80vh;
+        }
+
+        &__forecast {
+            flex-direction: row;
+        }
+
+        &__day {
+            display: flex;
+            flex-direction: column;
+            width: 14%;
+        }
+
+        &__base {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+    }
+
+    @media screen and (max-height: 750px) and (orientation: landscape) {
+        height: 100%;
+    }
+}
