@@ -22,7 +22,9 @@ const Signup = () => {
   // functions
   const handleSubmit = (e) => {
     e.preventDefault()
-    signup(email, password, displayName, avatar)
+    if (!error) {
+      signup(email, password, displayName, avatar)
+    }
   }
 
   const handleFileChange = (e) => {
