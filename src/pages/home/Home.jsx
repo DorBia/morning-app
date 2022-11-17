@@ -40,7 +40,7 @@ const Home = () => {
   const getWeather = useCallback( async() => {
     getLocation()
     if(userLocation){
-      const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${userLocation}&days=7`)
+      const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${userLocation}&days=7`)
       const data = await res.json()
       setWeather(data)
     }
