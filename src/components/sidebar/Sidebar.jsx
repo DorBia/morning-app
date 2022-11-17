@@ -4,9 +4,15 @@ import { useAuthContext } from "../../hooks/useAuthContext"
 import "./Sidebar.scss"
 import ArrowLeft from "../../assets/arrow-left.svg"
 
-const Sidebar = ({toggleSidebar}) => {
+const Sidebar = ({toggleSidebar, screenSize}) => {
 
     const { user } = useAuthContext()
+
+    const closeSidebarOnChoice = () => {
+        if(screenSize.dynamicWidth < 769) {
+            toggleSidebar()
+        }
+    }
 
   return (
     <div className="sidebar">
@@ -17,11 +23,14 @@ const Sidebar = ({toggleSidebar}) => {
                 <p>Hey, {user.displayName}</p>
             </div>
             <nav className="sidebar__links">
-                <NavLink to="/">
+                <NavLink to="/" onClick={closeSidebarOnChoice}>
                     <span>Weather</span>
                 </NavLink>
-                <NavLink to="/todo">
+                <NavLink to="/todo" onClick={closeSidebarOnChoice}>
                     <span>To-Do List</span>
+                </NavLink>
+                <NavLink to="/shopping" onClick={closeSidebarOnChoice}>
+                    <span>Shopping List</span>
                 </NavLink>
             </nav>
         </div>
