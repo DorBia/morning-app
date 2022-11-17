@@ -11,26 +11,6 @@
         text-align: center;
     }
 
-    // filters
-    &__filters {
-        margin-bottom: 20px;
-
-        & p {
-            display: inline;
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        & .btn {
-            margin: 5px;
-
-            &--active {
-                background:#48b6f6;
-                color: #fff;
-            }
-        }
-    }
-
     // list & items
     &__list {
         display: flex;

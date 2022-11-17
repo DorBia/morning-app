@@ -1,0 +1,19 @@
+    // filters
+    .filters {
+        margin: 20px 0;
+
+        & p {
+            display: inline;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        & .btn {
+            margin: 5px;
+
+            &--active {
+                background:#48b6f6;
+                color: #fff;
+            }
+        }
+    }

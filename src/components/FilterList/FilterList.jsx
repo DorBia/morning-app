@@ -1,6 +1,8 @@
-const FilterTodos = ({ allCategories, handleFilterChange, filter }) => {
+import "./FilterList.scss"
+
+const FilterList = ({ allCategories, handleFilterChange, filter }) => {
   return (
-    <div className="todo__filters">
+    <div className="filters">
       <p>Filter by:</p>
       <button
         onClick={() => handleFilterChange("all")}
@@ -12,7 +14,7 @@ const FilterTodos = ({ allCategories, handleFilterChange, filter }) => {
         <button
           onClick={() => handleFilterChange(category.value)}
           key={category.label}
-          className={filter === category.value ? "btn btn--active" : "btn"}
+          className={filter === category.value ? "btn btn--active" : `btn shopping__item--${category.value}`}
         >
           {category.label}
         </button>
@@ -21,4 +23,4 @@ const FilterTodos = ({ allCategories, handleFilterChange, filter }) => {
   );
 };
 
-export default FilterTodos;
+export default FilterList;

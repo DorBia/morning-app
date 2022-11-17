@@ -5,7 +5,7 @@ import { useCollection } from "../../hooks/useCollection";
 import "./Todo.scss";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
-import FilterTodos from "./FilterTodos";
+import FilterList from "../../components/FilterList/FilterList";
 
 const TodoHome = () => {
   const [isAddActive, setAddActive] = useState(false);
@@ -40,7 +40,7 @@ const TodoHome = () => {
         >
           {isAddActive ? "Hide" : "Add something to do"}
         </button>
-        <FilterTodos
+        <FilterList
           allCategories={allCategories}
           handleFilterChange={handleFilterChange}
           filter={filter}

@@ -1,0 +1,104 @@
+.shopping {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 20px auto;
+  max-width: 1200px;
+
+  &__add {
+    margin: 20px auto !important;
+  }
+
+  &__content {
+    padding: 0 20px;
+  }
+  
+  &__button {
+    text-align: center;
+  }
+
+  &__item {
+    margin: 30px auto;
+    border: 1px solid #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #ddd;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: white;
+    border-left: 4px solid #48b6f6;
+
+    &--other {
+      border-left: 4px solid #48b6f6;
+    }
+
+    &--fashion {
+      border-left: 4px solid #ff6db6;
+    }
+    &--grocery {
+      border-left: 4px solid #1fe825;
+    }
+    &--health {
+      border-left: 4px solid #09050b;
+    }
+    &--electronics {
+      border-left: 4px solid #0015d2;
+    }
+    &--hobby {
+      border-left: 4px solid #8f4e00;
+    }
+    &--home-item {
+      border-left: 4px solid #d2d2d2;
+    }
+
+    &--travel-item {
+      border-left: 4px solid #ffe678;
+    }
+  }
+
+  &__category {
+    font-size: 0.7rem;
+    color: #bbb;
+    margin-left: 10px;
+  }
+
+  &__name {
+    color: #777;
+    font-size: 1.4em;
+  }
+
+  &__amount {
+    margin-left: auto;
+    margin-right: 40px;
+    color: #777;
+    font-weight: bold;
+    font-size: 1.6em;
+  }
+
+  &__required {
+    display: inline;
+    color: #c70000;
+  }
+
+}
+
+@media screen and (min-width: 1220px) {
+  .shopping {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 60px auto;
+
+    &__content {
+      padding: 0 50px 0 0;
+    }
+
+    &__add {
+      margin: 60px auto !important;
+    }
+  
+  }
+}
+
+
+
+
