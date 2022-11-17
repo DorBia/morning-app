@@ -32,6 +32,9 @@ const Sidebar = ({toggleSidebar, screenSize}) => {
                 <NavLink to="/shopping" onClick={closeSidebarOnChoice}>
                     <span>Shopping List</span>
                 </NavLink>
+                <NavLink to="/bookmarks" onClick={closeSidebarOnChoice}>
+                    <span>Bookmarks</span>
+                </NavLink>
             </nav>
         </div>
     </div>

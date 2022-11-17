@@ -32,7 +32,7 @@ const TodoHome = () => {
 
   return (
     <div className="todo">
-      {isAddActive && <AddTodo allCategories={allCategories} />}
+      {isAddActive && <AddTodo allCategories={allCategories} uid={user.uid} />}
       <div className="todo__container">
         <button
           className="btn todo__add"

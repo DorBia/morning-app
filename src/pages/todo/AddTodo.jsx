@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
-import { useAuthContext } from "../../hooks/useAuthContext";
 
 import Select from "react-select";
 
-const AddTodo = ({ allCategories }) => {
+const AddTodo = ({ allCategories, uid }) => {
   const [error, setError] = useState(null);
   const [todo, setTodo] = useState({
     name: "",
@@ -12,7 +11,6 @@ const AddTodo = ({ allCategories }) => {
     categories: [],
   });
 
-  const { user } = useAuthContext();
   const { addDocument, response } = useFirestore("todos");
 
   const handleSubmit = (e) => {
@@ -25,7 +23,7 @@ const AddTodo = ({ allCategories }) => {
     }
 
     addDocument({
-      uid: user.uid,
+      uid,
       name: todo.name,
       date: todo.date,
       categories: todo.categories,

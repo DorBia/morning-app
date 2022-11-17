@@ -4,6 +4,7 @@ import './App.scss';
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Bookmarks from "./pages/bookmarks/Bookmarks";
 import Home from "./pages/home/Home";
 
 import Login from "./pages/login/Login"
@@ -50,6 +51,7 @@ function App() {
               <Route path="/" element={user ? <Home /> : <Navigate to="/login" />}/>
               <Route path="/todo" element={user ? <TodoHome /> : <Navigate to="/login" />}/>
               <Route path="/shopping" element={user ? <ShoppingHome screenSize={screenSize} /> : <Navigate to="/login" />}/>
+              <Route path="/bookmarks" element={user ? <Bookmarks /> : <Navigate to="/login" />}/>
             </Routes>
           </div>
         </BrowserRouter>

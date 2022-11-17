@@ -1,0 +1,26 @@
+.bookmarks {
+    margin: 20px auto;
+    max-width: 600px;
+
+    &__item {
+        margin: 10px auto;
+        border: 1px solid #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 3px 3px 5px #ddd;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: white;
+    }
+
+    &__delete {
+        margin-left: auto;
+    }
+
+    &__title {
+        color: #484848;
+        margin-left: 20px;
+        font-size: 1.2rem;
+    }
+}
