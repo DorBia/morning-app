@@ -21,10 +21,13 @@ const TodoItem = ({ todo }) => {
         X
       </button>
       <div className="todo__main">
-        {todo.categories.some((one) => one.value === "urgent") && (
+        {todo.categories.some((one) => one.value === "urgent") && todo.categories.some((one) => one.value === "important") && (
+          <h2 className="todo--urgent">!!! {todo.name}</h2>
+        )}
+        {todo.categories.some((one) => one.value === "urgent") && !todo.categories.some((one) => one.value === "important") && (
           <h2 className="todo--urgent">!! {todo.name}</h2>
         )}
-        {todo.categories.some((one) => one.value === "important") && (
+        {todo.categories.some((one) => one.value === "important") && !todo.categories.some((one) => one.value === "urgent") && (
           <h2 className="todo--important">! {todo.name}</h2>
         )}
         {!todo.categories.some(
